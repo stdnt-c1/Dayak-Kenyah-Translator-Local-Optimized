@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <title>Translator & Engine Dayak Kenyah - Offline</title>
+    <link rel="icon" href="/static/favicon.ico" />    <script src="/dynamic/script.js" defer></script>
+    <style>
+        @import url("/static/style.css");
+    </style>
+    <meta name="description" content="Dayak Kenyah Translator - Offline Translation Engine" />
+    <meta name="keywords" content="Dayak Kenyah, Translator, Offline, Language" />
+    <meta name="author" content="Muhammad Rizky Saputra" />
+</head>
+<body ontouchstart="">
+
+    <div class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Ganti Tema">
+        <span id="theme-icon"></span>
+    </div>
+
+    <div id="interactive-preloader">
+        <div id="preloader-canvas-container">
+            <canvas id="preloader-canvas"></canvas>
+        </div>
+        <div class="preloader-content">
+            <div class="preloader-title">Dayak Kenyah Translator Pro</div>
+            <div class="preloader-message">Dari ide kecil lahirlah dampak besar bagi banyak orang.</div>
+            <div class="loading-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="text-logo">DKT</div>
+            <h1>Dayak Kenyah Translator Pro</h1>
+            <p class="description">Translator Antarmuka Offline.</p>
+        </header>
+
+        <section class="card">
+            <h2><span aria-hidden="true">🔄</span> Translator</h2>            <div class="translator-container">
+                <div class="input-area">
+                    <p><strong>Translate dari:</strong> <span id="currentLang">Bahasa Indonesia</span></p>
+                    <textarea id="inputText" placeholder="Tulis teks di sini untuk diterjemahkan..." rows="1"></textarea>
+                    <button onclick="translateText()" class="primary">Terjemahkan</button>
+                </div>
+                <div class="swap-button-container">
+                    <button onclick="swapLanguage()" class="swap-button" title="Ganti Bahasa">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px">
+                            <path d="M8.99991 5.00006V9.00006L1.99991 9.00006L1.99991 11.0001L8.99991 11.0001V15.0001L14.9999 10.0001L8.99991 5.00006zM15.9999 19.0001V15.0001L22.9999 15.0001V13.0001L15.9999 13.0001L15.9999 9.00006L9.99991 14.0001L15.9999 19.0001z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="output-area">
+                    <p><strong>Terjemahan ke:</strong> <span id="swapLangTarget">Dayak Kenyah</span></p>
+                    <div class="output" id="outputText" tabindex="0">Hasil terjemahan akan muncul di sini.</div>
+                    <button onclick="selectTranslatedText()" class="select-text-btn" title="Pilih semua teks">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M9 9V5.5C9 3.57 10.57 2 12.5 2H16.5C18.43 2 20 3.57 20 5.5V9H9ZM7 9H4.5C2.57 9 1 10.57 1 12.5V16.5C1 18.43 2.57 20 4.5 20H8V9H7ZM20 11V16.5C20 18.43 18.43 20 16.5 20H12.5C10.57 20 9 18.43 9 16.5V11H20Z"/>
+                        </svg>
+                        Pilih Semua Teks
+                    </button>
+                </div>
+            </div>
+            <div class="button-group">
+                 <button onclick="translateText()" class="primary">Terjemahkan</button>
+            </div>
+            <div class="loader" id="translatorLoader"></div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tentang Proyek</h3>
+                    <p>Dayak Kenyah Translator Pro adalah proyek open source untuk melestarikan bahasa Dayak Kenyah melalui teknologi modern.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Pengembang</h3>
+                    <p>© ESP32 Ver. Author: Muhammad Rizky Saputra <a href="https://github.com/RyuHiiragi/Dayak-Kenyah-Translator-ESP-32.git">GitHub Repository</a></p>
+                    <p>© Local Host Ver. Author: Muhammad Bilal Maulida <a href="https://github.com/stdnt-c1/Dayak-Kenyah-Translator-Local-Optimized.git">GitHub Repository</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Institusi</h3>
+                    <p>XI TJKT 2, 2025</p>
+                    <p>SMK Negeri 7 Samarinda</p>
+                </div>
+                <div class="footer-section social">
+                    <h3>Sosial Media</h3>
+                    <a href="#" class="instagram-link">
+                        <svg class="instagram-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 1 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+                        </svg>
+                        <span class="instagram-text">@kysukamieayam</span>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Dayak Kenyah Translator Pro. Licensed under MIT License.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

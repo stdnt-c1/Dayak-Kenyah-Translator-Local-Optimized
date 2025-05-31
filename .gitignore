@@ -1,0 +1,52 @@
+# Ignore operating system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Ignore IDE and editor files
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Ignore build and output files
+build/
+dist/
+target/
+bin/
+obj/
+
+# Ignore dependency directories
+node_modules/
+vendor/
+bower_components/
+
+# Ignore log and temp files
+*.log
+*.tmp
+temp/
+
+# Ignore system files
+.env
+*.env
+.cache/
+
+# Ignore IDE-specific files
+*.sublime-project
+*.sublime-workspace
+
+# Ignore other unnecessary files
+*.bak
+*.orig
+*.swp
+
+# Ignore coverage reports
+coverage/
+
+# Ignore documentation files
+docs/
+plan.md
+*.new
+commit_message.txt
