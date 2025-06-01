@@ -24,7 +24,7 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first to leverage Docker cache
-COPY vercel-deployment/api/requirements.txt .
+COPY requirements.txt .
 
 # Build wheels for all requirements
 RUN pip3 wheel --no-cache-dir --no-deps --wheel-dir /wheels -r requirements.txt

@@ -50,3 +50,4 @@ docs/
 plan.md
 *.new
 commit_message.txt
+docker_status.json
