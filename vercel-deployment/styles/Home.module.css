@@ -1,0 +1,292 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 4rem);
+}
+
+/* Theme Toggle */
+.themeToggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  background: var(--toggle-bg);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  border: 2px solid var(--border-color);
+}
+
+.themeToggle:hover {
+  background: var(--card);
+}
+
+/* Header */
+.textLogo {
+  display: none;  /* Hide the text logo since it's overlapping */
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.headerTitle {
+  font-size: 2.5rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* Logo Container */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.logo {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Translator Section */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  margin-bottom: 2rem;
+}
+
+.translatorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .translatorContainer {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.inputArea,
+.outputArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.output {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.inputArea textarea,
+.output {
+  flex: 1;
+  min-height: 200px;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--input);
+  border: 2px solid var(--border-color);
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.inputArea textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.swapButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.swapButton {
+  background: var(--accent);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.swapButton:hover {
+  transform: scale(1.1);
+  background: var(--accent-hover);
+}
+
+@media (min-width: 768px) {
+  .swapButton svg {
+    transform: rotate(-90deg);
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.primary {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.primary:hover {
+  background: var(--accent-hover);
+}
+
+.selectTextBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.selectTextBtn:hover {
+  color: var(--accent-hover);
+}
+
+/* Loading indicator */
+.loader {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--border-color);
+  border-radius: 50%;
+  border-top-color: var(--accent);
+  animation: spin 1s linear infinite;
+  margin: 1rem auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Footer Styles */
+.footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerTitle {
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footerText {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.footerLink {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.instagramLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.instagramIcon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.instagramText {
+  font-size: 0.9rem;
+}
+
+.footerBottom {
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+

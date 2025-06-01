@@ -24,9 +24,10 @@ else
 fi
 
 # Start the application
-if [ -f "webroot/server/main.py" ]; then
-    echo "Starting server from webroot..."
-    exec python3 webroot/server/main.py
+if [ -f "vercel-deployment/api/translate.py" ]; then
+    echo "Starting server from vercel-deployment..."
+    cd vercel-deployment/api
+    exec uvicorn translate:app --host 0.0.0.0 --port ${PORT:-8000}
 else
     echo "Starting server from root..."
     exec python3 main.py

@@ -20,10 +20,11 @@ RUN apt-get update && \
         python3-dev \
         python3-pip \
         curl \
+        git \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first to leverage Docker cache
-COPY webroot/server/requirements.txt .
+COPY vercel-deployment/api/requirements.txt .
 
 # Build wheels for all requirements
 RUN pip3 wheel --no-cache-dir --no-deps --wheel-dir /wheels -r requirements.txt
